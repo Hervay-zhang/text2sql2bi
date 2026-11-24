@@ -31,10 +31,10 @@ class Settings(BaseSettings):
     EMBEDDING_DIM: int = 1536
 
     POSTGRES_DSN: str = (
-        "postgresql://bi:bi_dev_password@localhost:54320/text2sql2bi"   #bi-账户---系统自身数据的读写操作
+        "postgresql://bi:local_bi_owner_only@localhost:54320/text2sql2bi"   #bi-账户---系统自身数据的读写操作
     )
     QUERY_POSTGRES_DSN: str = (
-        "postgresql://bi_reader:bi_reader_password@localhost:54320/text2sql2bi"   #bi-readewr账户--- 只执行大模型生成的业务查询
+        "postgresql://bi_reader:local_bi_reader_only@localhost:54320/text2sql2bi"   #bi-readewr账户--- 只执行大模型生成的业务查询
     )
     QDRANT_URL: str = "http://localhost:56333"
     QDRANT_API_KEY: str = ""

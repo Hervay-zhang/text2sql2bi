@@ -1,6 +1,6 @@
 import type { Dashboard, QueryHistoryRecord, QueryResponse } from './types'
 
-const API = '/api/v1'
+const API = import.meta.env.BASE_URL + 'api/v1'
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API}${path}`, {

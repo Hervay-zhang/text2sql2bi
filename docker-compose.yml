@@ -4,9 +4,9 @@ services:
     environment:
       POSTGRES_DB: text2sql2bi
       POSTGRES_USER: bi
-      POSTGRES_PASSWORD: bi_dev_password
+      POSTGRES_PASSWORD: local_bi_owner_only
     ports:
-      - "54320:5432"
+      - "127.0.0.1:54320:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./docker/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
@@ -19,7 +19,7 @@ services:
   redis:
     image: redis:7-alpine
     ports:
-      - "56379:6379"
+      - "127.0.0.1:56379:6379"
     volumes:
       - redisdata:/data
     healthcheck:
@@ -31,8 +31,8 @@ services:
   qdrant:
     image: qdrant/qdrant:v1.15.4
     ports:
-      - "56333:6333"
-      - "56334:6334"
+      - "127.0.0.1:56333:6333"
+      - "127.0.0.1:56334:6334"
     volumes:
       - qdrantdata:/qdrant/storage
     healthcheck:

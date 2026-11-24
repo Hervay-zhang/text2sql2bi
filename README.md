@@ -10,3 +10,5 @@
 4. 进入 `frontend`，执行 `npm ci` 和 `npm run dev`。
 
 服务探针为 `/api/v1/health`。
+
+Compose 中的默认账号仅用于本机示例。部署请通过环境变量设置独立的数据库口令，并限制查询、历史和看板 API 的访问。
